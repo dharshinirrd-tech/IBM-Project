@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NovaTech | Mobile Intelligence</title>
+<style>
+  :root {
+    --bg-color: #f4f7f9;
+    --navy: #1e2a38;
+    --card-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    --primary-blue: #2c5f9e;
+    --accent-teal: #17a2b8;
+  }
+
+  body { margin: 0; font-family: 'Segoe UI', Arial, sans-serif; background: var(--bg-color); color: #333; }
+
+  /* Login Styling */
+  #loginPage {
+    display: flex; justify-content: center; align-items: center;
+    height: 100vh; background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  }
+  .login-box {
+    background: white; padding: 40px; border-radius: 15px;
+    width: 350px; box-shadow: 0 15px 35px rgba(0,0,0,0.3); text-align: center;
+  }
+  .login-box input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; }
+  .login-box button { width: 100%; padding: 12px; background: var(--primary-blue); color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 1rem; transition: 0.3s; }
+  .login-box button:hover { background: #1a3a5f; }
+
+  /* Navbar */
+  #dashboardPage { display: none; }
+  .navbar {
+    background: white; padding: 12px 40px; border-bottom: 1px solid #dee2e6;
+    display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100;
+  }
+  .brand { font-weight: 700; color: var(--navy); font-size: 1.4rem; display: flex; align-items: center; }
+  .logout-btn { background: #fff; border: 1px solid #dc3545; color: #dc3545; padding: 6px 18px; border-radius: 20px; cursor: pointer; transition: 0.2s; }
+  .logout-btn:hover { background: #dc3545; color: #fff; }
+
+  /* Layout Container */
+  .container { padding: 30px; max-width: 1500px; margin: auto; }
+
+  /* KPI Ribbon */
+  .kpi-container {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 30px;
+  }
+  .kpi-card {
+    background: white; padding: 20px; border-radius: 12px; box-shadow: var(--card-shadow);
+    border-top: 4px solid var(--primary-blue); text-align: left;
+  }
+  .kpi-title { font-size: 0.8rem; color: #6c757d; font-weight: 600; text-transform: uppercase; margin-bottom: 8px; }
+  .kpi-value { font-size: 1.8rem; font-weight: 700; color: var(--navy); }
+
+  /* Main Visuals Grid */
+  .visual-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-bottom: 25px;
+  }
+  .full-width { grid-column: span 2; }
+
+  .card { background: white; border-radius: 12px; box-shadow: var(--card-shadow); overflow: hidden; }
+  .card-header { padding: 15px 20px; border-bottom: 1px solid #eee; font-weight: 600; background: #fafafa; color: var(--navy); }
+  
+  iframe { width: 100%; height: 450px; border: none; display: block; }
+
+</style>
+</head>
+<body>
+
+<div id="loginPage">
+  <div class="login-box">
+    <h2 style="margin-bottom: 20px;">NovaTech | Login</h2>
+    <input type="text" id="username" placeholder="Username ">
+    <input type="password" id="password" placeholder="Password">
+    <button onclick="login()">Access Intelligence</button>
+  </div>
+</div>
+
+<div id="dashboardPage">
+  <nav class="navbar">
+    <div class="brand">📊 NovaTech <span style="font-weight: 300; margin-left: 10px;">Mobile Intelligence</span></div>
+    <button class="logout-btn" onclick="logout()">Sign Out</button>
+  </nav>
+
+  <div class="container">
+    <div class="kpi-container">
+      <div class="kpi-card">
+        <div class="kpi-title">Total Revenue</div>
+        <div class="kpi-value">₹16.4M</div>
+      </div>
+      <div class="kpi-card" style="border-top-color: #28a745;">
+        <div class="kpi-title">Units Sold</div>
+        <div class="kpi-value">512</div>
+      </div>
+      <div class="kpi-card" style="border-top-color: #dc3545;">
+        <div class="kpi-title">Return Rate</div>
+        <div class="kpi-value">26.1%</div>
+      </div>
+      <div class="kpi-card" style="border-top-color: #ffc107;">
+        <div class="kpi-title">Avg. CSAT Score</div>
+        <div class="kpi-value">3.2 / 5.0</div>
+      </div>
+    </div>
+
+    <div class="visual-grid">
+      <div class="card">
+        <div class="card-header">Revenue by Model Name & Channel</div>
+        <!-- <iframe src="https://ap2.ca.analytics.ibm.com/bi/?perspective=story&amp;pathRef=.my_folders%2FUsecase6&amp;closeWindowOnLastView=true&amp;ui_appbar=false&amp;ui_navbar=false&amp;shareMode=embedded&amp;action=view&amp;sceneId=model0000019d8ac2dbfa_00000002&amp;sceneTime=5000&amp;nav_filter=true" width="320" height="200" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen=""></iframe> -->
+         <img src="s1.png" alt="" style="height: 100; width: 120;">
+      </div>
+
+      <div class="card">
+        <div class="card-header">Units Sold by Sales Channel</div>
+         <img src="s2.png" alt="" style="height: 100; width: 80;">
+        <!-- <iframe src="https://ap2.ca.analytics.ibm.com/bi/?perspective=story&amp;pathRef=.my_folders%2FUsecase6&amp;closeWindowOnLastView=true&amp;ui_appbar=false&amp;ui_navbar=false&amp;shareMode=embedded&amp;action=view&amp;sceneId=model0000019d8ac2dbfb_00000000&amp;sceneTime=5000&amp;nav_filter=true" width="320" height="200" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen=""></iframe> -->
+      </div>
+
+      <div class="card full-width">
+        <div class="card-header">Service Center Efficiency: Resolution Time vs. Satisfaction</div>
+         <img src="s4.png" alt="" style="height: 100; width: 80;">
+        <!-- <iframe src="https://ap2.ca.analytics.ibm.com/bi/?perspective=story&amp;pathRef=.my_folders%2FUsecase6&amp;closeWindowOnLastView=true&amp;ui_appbar=false&amp;ui_navbar=false&amp;shareMode=embedded&amp;action=view&amp;sceneId=model0000019d8ac2dbfc_00000003&amp;sceneTime=4600&amp;nav_filter=true" width="320" height="200" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen=""></iframe> -->
+      </div>
+
+      <div class="card">
+        <div class="card-header">Satisfaction Trends by Region & Model</div>
+         <img src="s5.png" alt="" style="height: 100; width: 80;">
+        <!-- <iframe src="https://ap2.ca.analytics.ibm.com/bi/?perspective=story&amp;pathRef=.my_folders%2FUsecase6&amp;closeWindowOnLastView=true&amp;ui_appbar=false&amp;ui_navbar=false&amp;shareMode=embedded&amp;action=view&amp;sceneId=model0000019d8ac2dbfb_00000009&amp;sceneTime=3750&amp;nav_filter=true" width="320" height="200" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen=""></iframe> -->
+      </div>
+
+      <div class="card">
+        <div class="card-header">Return Rate Analysis by Model</div>
+         <img src="s3.png" alt="" style="height: 100; width: 80;">
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function login() {
+  const user = document.getElementById("username").value;
+  const pass = document.getElementById("password").value;
+  if(user === "admin" && pass === "1234") {
+    document.getElementById("loginPage").style.display = "none";
+    document.getElementById("dashboardPage").style.display = "block";
+  } else {
+    alert("Invalid Credentials. Please use admin/1234");
+  }
+}
+
+function logout() {
+  document.getElementById("loginPage").style.display = "flex";
+  document.getElementById("dashboardPage").style.display = "none";
+}
+</script>
+
+</body>
+</html>
